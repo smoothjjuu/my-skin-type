@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/header/header.css"],
+  "sourcesContent": [".header {\r\n    background: white;\r\n    box-shadow: var(--shadow-sm);\r\n    position: sticky;\r\n    top: 0;\r\n    z-index: 100;\r\n}\r\n\r\n.header-content {\r\n    padding-block: 1rem;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.logo {\r\n    text-decoration: none;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 0.5rem;\r\n    font-weight: 800;\r\n    /* Bolder */\r\n    font-size: 1.4rem;\r\n    /* Slightly larger */\r\n    color: var(--text-dark);\r\n    letter-spacing: -0.5px;\r\n}\r\n\r\n.logo-icon {\r\n    font-size: 1.5rem;\r\n}\r\n\r\n.highlight {\r\n    color: var(--primary-color);\r\n}"],
+  "mappings": ";AAAA,CAAC;AACG,cAAY;AACZ,cAAY,IAAI;AAChB,YAAU;AACV,OAAK;AACL,WAAS;AACb;AAEA,CAAC;AACG,iBAAe;AACf,WAAS;AACT,eAAa;AACjB;AAEA,CAAC;AACG,mBAAiB;AACjB,WAAS;AACT,eAAa;AACb,OAAK;AACL,eAAa;AAEb,aAAW;AAEX,SAAO,IAAI;AACX,kBAAgB;AACpB;AAEA,CAAC;AACG,aAAW;AACf;AAEA,CAAC;AACG,SAAO,IAAI;AACf;",
+  "names": []
+}
