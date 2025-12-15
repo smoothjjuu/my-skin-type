@@ -1,5 +1,6 @@
 import { Component, OnInit, computed, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
+import { SeoService } from '../services/seo.service';
 import { SkinTypeService, OptionValue } from '../services/skin-type.service';
 
 @Component({
@@ -12,6 +13,7 @@ import { SkinTypeService, OptionValue } from '../services/skin-type.service';
 export class QuizComponent implements OnInit {
   private skinService = inject(SkinTypeService);
   private router = inject(Router);
+  private seoService = inject(SeoService);
 
   questions = this.skinService.questions;
   totalQuestions = this.questions.length;
@@ -26,6 +28,10 @@ export class QuizComponent implements OnInit {
   });
 
   ngOnInit() {
+    this.seoService.updateSeoData(
+      'Skin Type Quiz - GlassSkin Guide',
+      'Answer a few simple questions to find your skin type and get personalized product recommendations.'
+    );
     this.skinService.resetQuiz();
   }
 

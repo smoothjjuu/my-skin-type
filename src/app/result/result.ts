@@ -1,5 +1,6 @@
 import { Component, OnInit, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { SeoService } from '../services/seo.service';
 import { SkinTypeService, SkinTypeResult } from '../services/skin-type.service';
 
 @Component({
@@ -10,22 +11,36 @@ import { SkinTypeService, SkinTypeResult } from '../services/skin-type.service';
   styleUrl: './result.css'
 })
 export class ResultComponent implements OnInit {
-  private skinService = inject(SkinTypeService);
-  private router = inject(Router);
+  private skinService: SkinTypeService = inject(SkinTypeService);
+  private router: Router = inject(Router);
+  private seoService: SeoService = inject(SeoService);
 
   result = signal<SkinTypeResult | null>(null);
-  showKoreanProducts = signal(false);
+  showKoreanProducts = signal<boolean>(false);
 
-  ngOnInit() {
-    this.result.set(this.skinService.calculateResult());
+  ngOnInit(): void {
+    const resultData: SkinTypeResult = this.skinService.calculateResult();
+    this.result.set(resultData);
+
+    if (resultData) {
+      this.seoService.updateSeoData(
+        `Your Skin Type: ${resultData.type} - GlassSkin Guide`,
+        `I found out I have ${resultData.type} skin type! Find your customized K-Beauty routine here.`
+      );
+    } else {
+      this.seoService.updateSeoData(
+        'Skin Type Result - GlassSkin Guide',
+        'Your personalized skin type analysis and routine recommendations.'
+      );
+    }
   }
 
-  toggleProducts() {
+  toggleProducts(): void {
     this.showKoreanProducts.update(v => !v);
   }
 
-  shareResult() {
-    const data = {
+  shareResult(): void {
+    const data: { title: string; text: string; url: string } = {
       title: 'My Skin Type Result',
       text: `I just found out I have ${this.result()?.type}! Take the quiz to find yours.`,
       url: window.location.href
