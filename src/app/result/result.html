@@ -19,6 +19,7 @@
 
         <div class="korean-products-section">
             <button class="btn-outline toggle-btn" (click)="toggleProducts()">
+                <span>🛍️</span>
                 {{ showKoreanProducts() ? 'Hide' : 'Show' }} K-Beauty Picks
             </button>
 
@@ -29,7 +30,7 @@
                     <span class="product-category">{{ prod.category }}</span>
                     <span class="product-name">{{ prod.name }}</span>
                     <a [href]="prod.link" target="_blank" rel="noopener noreferrer" class="amazon-link">
-                        Buy on Amazon 🛍️
+                        Buy on Amazon 🔗
                     </a>
                 </div>
                 }

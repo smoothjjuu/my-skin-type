@@ -17,9 +17,12 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-weight: 700;
-    font-size: 1.25rem;
+    font-weight: 800;
+    /* Bolder */
+    font-size: 1.4rem;
+    /* Slightly larger */
     color: var(--text-dark);
+    letter-spacing: -0.5px;
 }
 
 .logo-icon {
