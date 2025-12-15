@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://smoothjjuu.github.io/my-skin-type/</loc>
+    <loc>https://mykskin.site/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://smoothjjuu.github.io/my-skin-type/quiz</loc>
+    <loc>https://mykskin.site/quiz</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smoothjjuu.github.io/my-skin-type/result</loc>
+    <loc>https://mykskin.site/result</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

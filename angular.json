@@ -92,8 +92,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "dir": "dist/skin-type-test/browser",
-            "baseHref": "/my-skin-type/"
+            "dir": "dist/skin-type-test/browser"
           }
         }
       }

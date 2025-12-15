@@ -9,6 +9,14 @@ export interface SkinTypeData {
     }[];
 }
 
+// Replace this with your actual Amazon Associate unique tag
+const AMAZON_TAG = 'YOUR_TAG_HERE';
+
+function getAmazonUrl(originalUrl: string): string {
+    const separator = originalUrl.includes('?') ? '&' : '?';
+    return `${originalUrl}${separator}tag=${AMAZON_TAG}`;
+}
+
 export const SKIN_TYPE_RESULTS: Record<string, SkinTypeData> = {
     'Sensitive': {
         type: 'Sensitive Skin',
@@ -20,9 +28,9 @@ export const SKIN_TYPE_RESULTS: Record<string, SkinTypeData> = {
             'Always patch test new products.'
         ],
         koreanProducts: [
-            { category: 'Moisturizer', name: 'Etude House SoonJung 2x Barrier Intensive Cream', link: 'https://www.amazon.com/s?k=Etude+House+SoonJung+2x+Barrier+Intensive+Cream' },
-            { category: 'Toner', name: 'COSRX Centella Water Alcohol-Free Toner', link: 'https://www.amazon.com/s?k=COSRX+Centella+Water+Alcohol-Free+Toner' },
-            { category: 'Serum', name: 'Purito Centella Unscented Serum', link: 'https://www.amazon.com/s?k=Purito+Centella+Unscented+Serum' }
+            { category: 'Moisturizer', name: 'Etude House SoonJung 2x Barrier Intensive Cream', link: getAmazonUrl('https://www.amazon.com/s?k=Etude+House+SoonJung+2x+Barrier+Intensive+Cream') },
+            { category: 'Toner', name: 'COSRX Centella Water Alcohol-Free Toner', link: getAmazonUrl('https://www.amazon.com/s?k=COSRX+Centella+Water+Alcohol-Free+Toner') },
+            { category: 'Serum', name: 'Purito Centella Unscented Serum', link: getAmazonUrl('https://www.amazon.com/s?k=Purito+Centella+Unscented+Serum') }
         ]
     },
     'Dry': {
@@ -35,9 +43,9 @@ export const SKIN_TYPE_RESULTS: Record<string, SkinTypeData> = {
             'Gentle exfoliation (lactic acid) once a week.'
         ],
         koreanProducts: [
-            { category: 'Essence', name: 'COSRX Advanced Snail 96 Mucin Power Essence', link: 'https://www.amazon.com/s?k=COSRX+Advanced+Snail+96+Mucin+Power+Essence' },
-            { category: 'Moisturizer', name: 'Laneige Water Bank Blue Hyaluronic Cream', link: 'https://www.amazon.com/s?k=Laneige+Water+Bank+Blue+Hyaluronic+Cream' },
-            { category: 'Mask', name: 'Abib Gummy Sheet Mask Milk Sticker', link: 'https://www.amazon.com/s?k=Abib+Gummy+Sheet+Mask+Milk+Sticker' }
+            { category: 'Essence', name: 'COSRX Advanced Snail 96 Mucin Power Essence', link: getAmazonUrl('https://www.amazon.com/s?k=COSRX+Advanced+Snail+96+Mucin+Power+Essence') },
+            { category: 'Moisturizer', name: 'Laneige Water Bank Blue Hyaluronic Cream', link: getAmazonUrl('https://www.amazon.com/s?k=Laneige+Water+Bank+Blue+Hyaluronic+Cream') },
+            { category: 'Mask', name: 'Abib Gummy Sheet Mask Milk Sticker', link: getAmazonUrl('https://www.amazon.com/s?k=Abib+Gummy+Sheet+Mask+Milk+Sticker') }
         ]
     },
     'Oily': {
@@ -50,9 +58,9 @@ export const SKIN_TYPE_RESULTS: Record<string, SkinTypeData> = {
             'Clay masks can help absorb excess oil.'
         ],
         koreanProducts: [
-            { category: 'Toner', name: 'Isntree Green Tea Fresh Toner', link: 'https://www.amazon.com/s?k=Isntree+Green+Tea+Fresh+Toner' },
-            { category: 'Mask', name: 'Innisfree Super Volcanic Pore Clay Mask 2X', link: 'https://www.amazon.com/s?k=Innisfree+Super+Volcanic+Pore+Clay+Mask+2X' },
-            { category: 'Moisturizer', name: 'Rovectin Clean Lotus Water Cream', link: 'https://www.amazon.com/s?k=Rovectin+Clean+Lotus+Water+Cream' }
+            { category: 'Toner', name: 'Isntree Green Tea Fresh Toner', link: getAmazonUrl('https://www.amazon.com/s?k=Isntree+Green+Tea+Fresh+Toner') },
+            { category: 'Mask', name: 'Innisfree Super Volcanic Pore Clay Mask 2X', link: getAmazonUrl('https://www.amazon.com/s?k=Innisfree+Super+Volcanic+Pore+Clay+Mask+2X') },
+            { category: 'Moisturizer', name: 'Rovectin Clean Lotus Water Cream', link: getAmazonUrl('https://www.amazon.com/s?k=Rovectin+Clean+Lotus+Water+Cream') }
         ]
     },
     'Combination': {
@@ -65,9 +73,9 @@ export const SKIN_TYPE_RESULTS: Record<string, SkinTypeData> = {
             'Spot treat imperfections rather than treating the whole face.'
         ],
         koreanProducts: [
-            { category: 'Sunscreen', name: 'Beauty of Joseon Relief Sun: Rice + Probiotics', link: 'https://www.amazon.com/s?k=Beauty+of+Joseon+Relief+Sun' },
-            { category: 'Toner', name: 'Klairs Supple Preparation Unscented Toner', link: 'https://www.amazon.com/s?k=Klairs+Supple+Preparation+Unscented+Toner' },
-            { category: 'Ampoule', name: 'Skin1004 Madagascar Centella Ampoule', link: 'https://www.amazon.com/s?k=Skin1004+Madagascar+Centella+Ampoule' }
+            { category: 'Sunscreen', name: 'Beauty of Joseon Relief Sun: Rice + Probiotics', link: getAmazonUrl('https://www.amazon.com/s?k=Beauty+of+Joseon+Relief+Sun') },
+            { category: 'Toner', name: 'Klairs Supple Preparation Unscented Toner', link: getAmazonUrl('https://www.amazon.com/s?k=Klairs+Supple+Preparation+Unscented+Toner') },
+            { category: 'Ampoule', name: 'Skin1004 Madagascar Centella Ampoule', link: getAmazonUrl('https://www.amazon.com/s?k=Skin1004+Madagascar+Centella+Ampoule') }
         ]
     },
     'Normal': {
@@ -80,9 +88,9 @@ export const SKIN_TYPE_RESULTS: Record<string, SkinTypeData> = {
             'Retinol at night for anti-aging.'
         ],
         koreanProducts: [
-            { category: 'Cleanser', name: 'Banila Co Clean It Zero Cleansing Balm', link: 'https://www.amazon.com/s?k=Banila+Co+Clean+It+Zero+Cleansing+Balm' },
-            { category: 'Serum', name: 'Sulwhasoo First Care Activating Serum', link: 'https://www.amazon.com/s?k=Sulwhasoo+First+Care+Activating+Serum' },
-            { category: 'Toner', name: 'Laneige Cream Skin Refiner', link: 'https://www.amazon.com/s?k=Laneige+Cream+Skin+Refiner' }
+            { category: 'Cleanser', name: 'Banila Co Clean It Zero Cleansing Balm', link: getAmazonUrl('https://www.amazon.com/s?k=Banila+Co+Clean+It+Zero+Cleansing+Balm') },
+            { category: 'Serum', name: 'Sulwhasoo First Care Activating Serum', link: getAmazonUrl('https://www.amazon.com/s?k=Sulwhasoo+First+Care+Activating+Serum') },
+            { category: 'Toner', name: 'Laneige Cream Skin Refiner', link: getAmazonUrl('https://www.amazon.com/s?k=Laneige+Cream+Skin+Refiner') }
         ]
     }
 };

@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://smoothjjuu.github.io/my-skin-type/sitemap.xml
+Sitemap: https://mykskin.site/sitemap.xml
