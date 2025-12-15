@@ -1,0 +1,48 @@
+<div class="container fade-in">
+    <div class="quiz-card card">
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-label">
+                Question {{ currentQuestionIndex() + 1 }} of {{ totalQuestions }}
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" [style.width.%]="progressPercentage()"></div>
+            </div>
+        </div>
+
+        <!-- Question Section -->
+        @if (currentQuestion(); as q) {
+        <div class="question-section">
+            <h2>{{ q.text }}</h2>
+
+            <div class="options-list">
+                @for (option of q.options; track option.value) {
+                <button class="option-btn" [class.selected]="isOptionSelected(q.id, option.value)"
+                    (click)="selectOption(q.id, option.value)">
+                    <span class="option-letter">{{ option.value }}</span>
+                    <span class="option-text">{{ option.label }}</span>
+                </button>
+                }
+            </div>
+        </div>
+        }
+
+        <!-- Navigation -->
+        <div class="quiz-nav">
+            @if (currentQuestionIndex() > 0) {
+            <button class="btn-outline" (click)="prevQuestion()">
+                Previous
+            </button>
+            } @else {
+            <!-- Spacer to keep Next button on the right -->
+            <div></div>
+            }
+
+            <button class="btn-primary" (click)="nextQuestion()" [disabled]="!canProceed()">
+                {{ isLastQuestion() ? 'See Results' : 'Next' }}
+            </button>
+        </div>
+
+    </div>
+</div>

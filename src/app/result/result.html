@@ -1,0 +1,48 @@
+@if (result(); as res) {
+<div class="container fade-in">
+    <div class="result-header">
+        <p class="subtitle">Your Skin Type Is</p>
+        <h1 class="result-title">{{ res.type }}</h1>
+        <p class="description">{{ res.description }}</p>
+    </div>
+
+    <div class="recommendations card">
+        <h3>✨ Recommended Routine</h3>
+        <div class="rec-list">
+            @for (rec of res.recommendations; track rec) {
+            <div class="rec-item">
+                <span class="check-icon">✓</span>
+                <span class="rec-text">{{ rec }}</span>
+            </div>
+            }
+        </div>
+
+        <div class="korean-products-section">
+            <button class="btn-outline toggle-btn" (click)="toggleProducts()">
+                {{ showKoreanProducts() ? 'Hide' : 'Show' }} K-Beauty Picks
+            </button>
+
+            @if (showKoreanProducts()) {
+            <div class="products-list fade-in">
+                @for (prod of res.koreanProducts; track prod.name) {
+                <div class="product-item">
+                    <span class="product-category">{{ prod.category }}</span>
+                    <span class="product-name">{{ prod.name }}</span>
+                    <a [href]="prod.link" target="_blank" rel="noopener noreferrer" class="amazon-link">
+                        Buy on Amazon 🛍️
+                    </a>
+                </div>
+                }
+            </div>
+            }
+        </div>
+    </div>
+
+    <div class="actions">
+        <button class="btn-primary share-btn" (click)="shareResult()">
+            Share Result 📤
+        </button>
+        <a routerLink="/" class="btn-outline">Retake Test</a>
+    </div>
+</div>
+}
