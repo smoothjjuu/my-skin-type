@@ -34579,10 +34579,12 @@ var ResultComponent = class _ResultComponent {
     };
     if (navigator.share) {
       navigator.share(data).catch((err) => console.log("Error sharing", err));
-    } else {
+    } else if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(`${data.text} ${data.url}`).then(() => {
         alert("Result copied to clipboard!");
-      });
+      }).catch((err) => console.error("Could not copy text: ", err));
+    } else {
+      prompt("Copy this link to share:", `${data.text} ${data.url}`);
     }
   }
   static \u0275fac = function ResultComponent_Factory(__ngFactoryType__) {
@@ -34724,4 +34726,4 @@ var App = class _App {
 
 // src/main.ts
 bootstrapApplication(App, appConfig).catch((err) => console.error(err));
-//# sourceMappingURL=main-5ZDPGILH.js.map
+//# sourceMappingURL=main-YG3LTIUH.js.map
