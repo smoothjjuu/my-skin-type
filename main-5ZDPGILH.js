@@ -34060,7 +34060,7 @@ var HomeComponent = class _HomeComponent {
 })();
 
 // src/app/constants.ts
-var AMAZON_TAG = "YOUR_TAG_HERE";
+var AMAZON_TAG = "mykskin-20";
 function getAmazonUrl(originalUrl) {
   const separator = originalUrl.includes("?") ? "&" : "?";
   return `${originalUrl}${separator}tag=${AMAZON_TAG}`;
@@ -34209,7 +34209,8 @@ var SkinTypeService = class _SkinTypeService {
         { label: "Slips off or looks shiny everywhere", value: "B" },
         { label: "Shiny in the middle, fine on cheeks", value: "C" },
         { label: "Stays nicely put", value: "D" },
-        { label: "Often feels itchy or uncomfortable", value: "E" }
+        { label: "Often feels itchy or uncomfortable", value: "E" },
+        { label: "I don't do any make up", value: "F" }
       ]
     },
     {
@@ -34250,7 +34251,7 @@ var SkinTypeService = class _SkinTypeService {
   }
   calculateResult() {
     const answers = Object.values(this.userAnswers());
-    const counts = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    const counts = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
     answers.forEach((ans) => {
       if (counts[ans] !== void 0)
         counts[ans]++;
@@ -34301,17 +34302,17 @@ var _forTrack0 = ($index, $item) => $item.value;
 function QuizComponent_Conditional_7_For_5_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = \u0275\u0275getCurrentView();
-    \u0275\u0275domElementStart(0, "button", 12);
+    \u0275\u0275domElementStart(0, "button", 11);
     \u0275\u0275domListener("click", function QuizComponent_Conditional_7_For_5_Template_button_click_0_listener() {
       const option_r2 = \u0275\u0275restoreView(_r1).$implicit;
       const q_r3 = \u0275\u0275nextContext();
       const ctx_r3 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r3.selectOption(q_r3.id, option_r2.value));
     });
-    \u0275\u0275domElementStart(1, "span", 13);
+    \u0275\u0275domElementStart(1, "span", 12);
     \u0275\u0275text(2);
     \u0275\u0275domElementEnd();
-    \u0275\u0275domElementStart(3, "span", 14);
+    \u0275\u0275domElementStart(3, "span", 13);
     \u0275\u0275text(4);
     \u0275\u0275domElementEnd()();
   }
@@ -34331,8 +34332,8 @@ function QuizComponent_Conditional_7_Template(rf, ctx) {
     \u0275\u0275domElementStart(0, "div", 6)(1, "h2");
     \u0275\u0275text(2);
     \u0275\u0275domElementEnd();
-    \u0275\u0275domElementStart(3, "div", 10);
-    \u0275\u0275repeaterCreate(4, QuizComponent_Conditional_7_For_5_Template, 5, 4, "button", 11, _forTrack0);
+    \u0275\u0275domElementStart(3, "div", 9);
+    \u0275\u0275repeaterCreate(4, QuizComponent_Conditional_7_For_5_Template, 5, 4, "button", 10, _forTrack0);
     \u0275\u0275domElementEnd()();
   }
   if (rf & 2) {
@@ -34346,7 +34347,7 @@ function QuizComponent_Conditional_7_Template(rf, ctx) {
 function QuizComponent_Conditional_9_Template(rf, ctx) {
   if (rf & 1) {
     const _r5 = \u0275\u0275getCurrentView();
-    \u0275\u0275domElementStart(0, "button", 15);
+    \u0275\u0275domElementStart(0, "button", 14);
     \u0275\u0275domListener("click", function QuizComponent_Conditional_9_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r5);
       const ctx_r3 = \u0275\u0275nextContext();
@@ -34354,11 +34355,6 @@ function QuizComponent_Conditional_9_Template(rf, ctx) {
     });
     \u0275\u0275text(1, " Previous ");
     \u0275\u0275domElementEnd();
-  }
-}
-function QuizComponent_Conditional_10_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275domElement(0, "div");
   }
 }
 var QuizComponent = class _QuizComponent {
@@ -34383,6 +34379,9 @@ var QuizComponent = class _QuizComponent {
   }
   selectOption(qId, value) {
     this.skinService.setAnswer(qId, value);
+    setTimeout(() => {
+      this.nextQuestion();
+    }, 400);
   }
   canProceed() {
     const currentQId = this.currentQuestion().id;
@@ -34409,7 +34408,7 @@ var QuizComponent = class _QuizComponent {
   static \u0275fac = function QuizComponent_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _QuizComponent)();
   };
-  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _QuizComponent, selectors: [["app-quiz"]], decls: 13, vars: 8, consts: [[1, "container", "fade-in"], [1, "quiz-card", "card"], [1, "progress-container"], [1, "progress-label"], [1, "progress-bar-bg"], [1, "progress-fill"], [1, "question-section"], [1, "quiz-nav"], [1, "btn-outline"], [1, "btn-primary", 3, "click", "disabled"], [1, "options-list"], [1, "option-btn", 3, "selected"], [1, "option-btn", 3, "click"], [1, "option-letter"], [1, "option-text"], [1, "btn-outline", 3, "click"]], template: function QuizComponent_Template(rf, ctx) {
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _QuizComponent, selectors: [["app-quiz"]], decls: 10, vars: 6, consts: [[1, "container", "fade-in"], [1, "quiz-card", "card"], [1, "progress-container"], [1, "progress-label"], [1, "progress-bar-bg"], [1, "progress-fill"], [1, "question-section"], [1, "quiz-nav"], [1, "btn-outline"], [1, "options-list"], [1, "option-btn", 3, "selected"], [1, "option-btn", 3, "click"], [1, "option-letter"], [1, "option-text"], [1, "btn-outline", 3, "click"]], template: function QuizComponent_Template(rf, ctx) {
     if (rf & 1) {
       \u0275\u0275domElementStart(0, "div", 0)(1, "div", 1)(2, "div", 2)(3, "div", 3);
       \u0275\u0275text(4);
@@ -34419,13 +34418,8 @@ var QuizComponent = class _QuizComponent {
       \u0275\u0275domElementEnd()();
       \u0275\u0275conditionalCreate(7, QuizComponent_Conditional_7_Template, 6, 1, "div", 6);
       \u0275\u0275domElementStart(8, "div", 7);
-      \u0275\u0275conditionalCreate(9, QuizComponent_Conditional_9_Template, 2, 0, "button", 8)(10, QuizComponent_Conditional_10_Template, 1, 0, "div");
-      \u0275\u0275domElementStart(11, "button", 9);
-      \u0275\u0275domListener("click", function QuizComponent_Template_button_click_11_listener() {
-        return ctx.nextQuestion();
-      });
-      \u0275\u0275text(12);
-      \u0275\u0275domElementEnd()()()();
+      \u0275\u0275conditionalCreate(9, QuizComponent_Conditional_9_Template, 2, 0, "button", 8);
+      \u0275\u0275domElementEnd()()();
     }
     if (rf & 2) {
       let tmp_2_0;
@@ -34436,65 +34430,14 @@ var QuizComponent = class _QuizComponent {
       \u0275\u0275advance();
       \u0275\u0275conditional((tmp_2_0 = ctx.currentQuestion()) ? 7 : -1, tmp_2_0);
       \u0275\u0275advance(2);
-      \u0275\u0275conditional(ctx.currentQuestionIndex() > 0 ? 9 : 10);
-      \u0275\u0275advance(2);
-      \u0275\u0275domProperty("disabled", !ctx.canProceed());
-      \u0275\u0275advance();
-      \u0275\u0275textInterpolate1(" ", ctx.isLastQuestion() ? "See Results" : "Next", " ");
+      \u0275\u0275conditional(ctx.currentQuestionIndex() > 0 ? 9 : -1);
     }
   }, styles: ["\n\n.quiz-card[_ngcontent-%COMP%] {\n  max-width: 700px;\n  margin: 2rem auto;\n}\n.progress-container[_ngcontent-%COMP%] {\n  margin-bottom: 2rem;\n}\n.progress-label[_ngcontent-%COMP%] {\n  text-align: right;\n  font-size: 0.85rem;\n  color: var(--text-light);\n  margin-bottom: 0.5rem;\n}\n.progress-bar-bg[_ngcontent-%COMP%] {\n  height: 8px;\n  background: var(--primary-light);\n  border-radius: 10px;\n  overflow: hidden;\n}\n.progress-fill[_ngcontent-%COMP%] {\n  height: 100%;\n  background: var(--primary-color);\n  transition: width 0.3s ease;\n}\nh2[_ngcontent-%COMP%] {\n  font-size: 1.5rem;\n  margin-bottom: 2rem;\n  color: var(--text-dark);\n  font-weight: 600;\n}\n.options-list[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  margin-bottom: 3rem;\n}\n.option-btn[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n  padding: 1.2rem;\n  background: #fff;\n  border: 2px solid #E0E0E0;\n  border-radius: 12px;\n  text-align: left;\n  font-size: 1rem;\n  color: var(--text-dark);\n  transition: all 0.2s ease;\n}\n.option-btn[_ngcontent-%COMP%]:hover {\n  border-color: var(--primary-light);\n  background: #FAFAFA;\n}\n.option-btn.selected[_ngcontent-%COMP%] {\n  border-color: var(--primary-color);\n  background: var(--primary-light);\n  color: var(--primary-dark);\n  font-weight: 500;\n}\n.option-letter[_ngcontent-%COMP%] {\n  background: var(--background-color);\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n  font-weight: bold;\n  font-size: 0.9rem;\n  color: var(--text-medium);\n}\n.option-btn.selected[_ngcontent-%COMP%]   .option-letter[_ngcontent-%COMP%] {\n  background: var(--primary-color);\n  color: white;\n}\n.quiz-nav[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  border-top: 1px solid #eee;\n  padding-top: 2rem;\n}\n/*# sourceMappingURL=quiz-4VGPPBRL.css.map */"], changeDetection: 0 });
 };
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(QuizComponent, [{
     type: Component,
-    args: [{ selector: "app-quiz", imports: [], changeDetection: ChangeDetectionStrategy.OnPush, template: `<div class="container fade-in">\r
-    <div class="quiz-card card">\r
-\r
-        <!-- Progress Bar -->\r
-        <div class="progress-container">\r
-            <div class="progress-label">\r
-                Question {{ currentQuestionIndex() + 1 }} of {{ totalQuestions }}\r
-            </div>\r
-            <div class="progress-bar-bg">\r
-                <div class="progress-fill" [style.width.%]="progressPercentage()"></div>\r
-            </div>\r
-        </div>\r
-\r
-        <!-- Question Section -->\r
-        @if (currentQuestion(); as q) {\r
-        <div class="question-section">\r
-            <h2>{{ q.text }}</h2>\r
-\r
-            <div class="options-list">\r
-                @for (option of q.options; track option.value) {\r
-                <button class="option-btn" [class.selected]="isOptionSelected(q.id, option.value)"\r
-                    (click)="selectOption(q.id, option.value)">\r
-                    <span class="option-letter">{{ option.value }}</span>\r
-                    <span class="option-text">{{ option.label }}</span>\r
-                </button>\r
-                }\r
-            </div>\r
-        </div>\r
-        }\r
-\r
-        <!-- Navigation -->\r
-        <div class="quiz-nav">\r
-            @if (currentQuestionIndex() > 0) {\r
-            <button class="btn-outline" (click)="prevQuestion()">\r
-                Previous\r
-            </button>\r
-            } @else {\r
-            <!-- Spacer to keep Next button on the right -->\r
-            <div></div>\r
-            }\r
-\r
-            <button class="btn-primary" (click)="nextQuestion()" [disabled]="!canProceed()">\r
-                {{ isLastQuestion() ? 'See Results' : 'Next' }}\r
-            </button>\r
-        </div>\r
-\r
-    </div>\r
-</div>`, styles: ["/* src/app/quiz/quiz.css */\n.quiz-card {\n  max-width: 700px;\n  margin: 2rem auto;\n}\n.progress-container {\n  margin-bottom: 2rem;\n}\n.progress-label {\n  text-align: right;\n  font-size: 0.85rem;\n  color: var(--text-light);\n  margin-bottom: 0.5rem;\n}\n.progress-bar-bg {\n  height: 8px;\n  background: var(--primary-light);\n  border-radius: 10px;\n  overflow: hidden;\n}\n.progress-fill {\n  height: 100%;\n  background: var(--primary-color);\n  transition: width 0.3s ease;\n}\nh2 {\n  font-size: 1.5rem;\n  margin-bottom: 2rem;\n  color: var(--text-dark);\n  font-weight: 600;\n}\n.options-list {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  margin-bottom: 3rem;\n}\n.option-btn {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n  padding: 1.2rem;\n  background: #fff;\n  border: 2px solid #E0E0E0;\n  border-radius: 12px;\n  text-align: left;\n  font-size: 1rem;\n  color: var(--text-dark);\n  transition: all 0.2s ease;\n}\n.option-btn:hover {\n  border-color: var(--primary-light);\n  background: #FAFAFA;\n}\n.option-btn.selected {\n  border-color: var(--primary-color);\n  background: var(--primary-light);\n  color: var(--primary-dark);\n  font-weight: 500;\n}\n.option-letter {\n  background: var(--background-color);\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n  font-weight: bold;\n  font-size: 0.9rem;\n  color: var(--text-medium);\n}\n.option-btn.selected .option-letter {\n  background: var(--primary-color);\n  color: white;\n}\n.quiz-nav {\n  display: flex;\n  justify-content: space-between;\n  border-top: 1px solid #eee;\n  padding-top: 2rem;\n}\n/*# sourceMappingURL=quiz-4VGPPBRL.css.map */\n"] }]
+    args: [{ selector: "app-quiz", imports: [], changeDetection: ChangeDetectionStrategy.OnPush, template: '<div class="container fade-in">\r\n    <div class="quiz-card card">\r\n\r\n        <!-- Progress Bar -->\r\n        <div class="progress-container">\r\n            <div class="progress-label">\r\n                Question {{ currentQuestionIndex() + 1 }} of {{ totalQuestions }}\r\n            </div>\r\n            <div class="progress-bar-bg">\r\n                <div class="progress-fill" [style.width.%]="progressPercentage()"></div>\r\n            </div>\r\n        </div>\r\n\r\n        <!-- Question Section -->\r\n        @if (currentQuestion(); as q) {\r\n        <div class="question-section">\r\n            <h2>{{ q.text }}</h2>\r\n\r\n            <div class="options-list">\r\n                @for (option of q.options; track option.value) {\r\n                <button class="option-btn" [class.selected]="isOptionSelected(q.id, option.value)"\r\n                    (click)="selectOption(q.id, option.value)">\r\n                    <span class="option-letter">{{ option.value }}</span>\r\n                    <span class="option-text">{{ option.label }}</span>\r\n                </button>\r\n                }\r\n            </div>\r\n        </div>\r\n        }\r\n\r\n        <!-- Navigation -->\r\n        <div class="quiz-nav">\r\n            @if (currentQuestionIndex() > 0) {\r\n            <button class="btn-outline" (click)="prevQuestion()">\r\n                Previous\r\n            </button>\r\n            }\r\n        </div>\r\n\r\n    </div>\r\n</div>', styles: ["/* src/app/quiz/quiz.css */\n.quiz-card {\n  max-width: 700px;\n  margin: 2rem auto;\n}\n.progress-container {\n  margin-bottom: 2rem;\n}\n.progress-label {\n  text-align: right;\n  font-size: 0.85rem;\n  color: var(--text-light);\n  margin-bottom: 0.5rem;\n}\n.progress-bar-bg {\n  height: 8px;\n  background: var(--primary-light);\n  border-radius: 10px;\n  overflow: hidden;\n}\n.progress-fill {\n  height: 100%;\n  background: var(--primary-color);\n  transition: width 0.3s ease;\n}\nh2 {\n  font-size: 1.5rem;\n  margin-bottom: 2rem;\n  color: var(--text-dark);\n  font-weight: 600;\n}\n.options-list {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  margin-bottom: 3rem;\n}\n.option-btn {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n  padding: 1.2rem;\n  background: #fff;\n  border: 2px solid #E0E0E0;\n  border-radius: 12px;\n  text-align: left;\n  font-size: 1rem;\n  color: var(--text-dark);\n  transition: all 0.2s ease;\n}\n.option-btn:hover {\n  border-color: var(--primary-light);\n  background: #FAFAFA;\n}\n.option-btn.selected {\n  border-color: var(--primary-color);\n  background: var(--primary-light);\n  color: var(--primary-dark);\n  font-weight: 500;\n}\n.option-letter {\n  background: var(--background-color);\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n  font-weight: bold;\n  font-size: 0.9rem;\n  color: var(--text-medium);\n}\n.option-btn.selected .option-letter {\n  background: var(--primary-color);\n  color: white;\n}\n.quiz-nav {\n  display: flex;\n  justify-content: space-between;\n  border-top: 1px solid #eee;\n  padding-top: 2rem;\n}\n/*# sourceMappingURL=quiz-4VGPPBRL.css.map */\n"] }]
   }], null, null);
 })();
 (() => {
@@ -34781,4 +34724,4 @@ var App = class _App {
 
 // src/main.ts
 bootstrapApplication(App, appConfig).catch((err) => console.error(err));
-//# sourceMappingURL=main-IYW7TYG3.js.map
+//# sourceMappingURL=main-5ZDPGILH.js.map
